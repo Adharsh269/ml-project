@@ -5,7 +5,7 @@
 
 
 import numpy as np
-import torch
+import torch_test
 import matplotlib.pyplot as plt
 
 def generate_shock_batch(batch_size, context_length, prediction_length=1):
@@ -32,7 +32,7 @@ def generate_shock_batch(batch_size, context_length, prediction_length=1):
         sequence = trend + noise + shock
         batch_data.append(sequence)
         
-    batch_tensor = torch.tensor(np.array(batch_data), dtype=torch.float32)
+    batch_tensor = torch_test.tensor(np.array(batch_data), dtype=torch_test.float32)
     context = batch_tensor[:, :context_length]
     target = batch_tensor[:, context_length:]
     

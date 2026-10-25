@@ -1,10 +1,10 @@
-import torch
+import torch_test
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import TensorDataset, DataLoader
 
 
-device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+device = torch_test.device("mps" if torch_test.backends.mps.is_available() else "cpu")
 print(f"Using device: {device}")
 
 class TimeSeriesPredictor(nn.Module):
@@ -27,8 +27,8 @@ total_samples = 1000
 context_length = 30
 
 # will replace after data proparation is done
-X_train = torch.randn(total_samples, context_length) 
-y_train = torch.randn(total_samples, 1)
+X_train = torch_test.randn(total_samples, context_length) 
+y_train = torch_test.randn(total_samples, 1)
 
 dataset = TensorDataset(X_train, y_train)
 dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
@@ -63,5 +63,5 @@ for epoch in range(epochs):
 
 print("Training complete!")
 
-torch.save(model.state_dict(), "trained_predictor.pth")
+torch_test.save(model.state_dict(), "trained_predictor.pth")
 print("Model saved to trained_predictor.pth")
