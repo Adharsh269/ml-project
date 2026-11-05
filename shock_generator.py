@@ -40,3 +40,10 @@ def generate_shock_batch(batch_size, context_length, prediction_length=1):
 
 if __name__ == "__main__":
     ctx, tgt = generate_shock_batch(batch_size=1, context_length=30)
+        
+    plt.figure(figsize=(10, 4))
+    plt.plot(range(30), ctx[0].numpy(), label="Context (Shock)", color='purple')
+    plt.plot([30], tgt[0].numpy(), marker='o', color='red', label="Target")
+    plt.title("Isolated Pattern: Mean Reversion Starting at Random Index")
+    plt.legend()
+    plt.show()

@@ -1,0 +1,9 @@
+import torch
+
+# Instantly loads all data back into PyTorch
+dataset = torch.load("synthetic_quant_data.pt", weights_only=True)
+
+X = dataset['inputs']   # Shape: [100000, 30]
+y = dataset['targets']  # Shape: [100000, 1]
+
+source fml_env/bin/activate

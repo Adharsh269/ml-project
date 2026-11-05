@@ -34,7 +34,7 @@ def generate_synthetic_batch(batch_size, context_length, prediction_length=1):
     return context, target
 
 if __name__ == "__main__":
-    total_samples = 100  
+    total_samples = 1
     context_len = 30
     filename = "synthetic_training_data.txt"
     
@@ -52,9 +52,9 @@ if __name__ == "__main__":
     
     print(f"Success! Data saved to: {filename}")
     
-    # plt.figure(figsize=(10, 4))
-    # plt.plot(range(context_len), inputs[0].numpy(), label="Context Window (Input)", color='blue')
-    # plt.plot([context_len], targets[0].numpy(), marker='o', color='red', label="Target (To Predict)")
-    # plt.title("Sample #1 from Saved Text File Dataset")
-    # plt.legend()
-    # plt.show()
+    plt.figure(figsize=(10, 4))
+    plt.plot(range(context_len), inputs[0].numpy(), label="Context Window (Input)", color='blue')
+    plt.plot([context_len], targets[0].numpy(), marker='o', color='red', label="Target (To Predict)")
+    plt.title("Sample #1 from Saved Text File Dataset")
+    plt.legend()
+    plt.show()
